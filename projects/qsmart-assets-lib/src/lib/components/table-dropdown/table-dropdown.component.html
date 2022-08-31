@@ -1,0 +1,18 @@
+<div
+  dropdown
+  class="app-table--action"
+  [container]="container"
+  placement="bottom right"
+  (onShown)="onOpen()"
+  (onHidden)="onHide()"
+  (isOpenChange)="onOpenChange($event)"
+>
+  <button type="button" dropdownToggle #buttonRef>
+    <svg [attr.width]="iconWidth" [attr.viewBox]="iconViewBox" fill="currenColor">
+      <use [attr.href]="'global/assets/sprite.svg#' + iconName"></use>
+    </svg>
+  </button>
+  <ul class="dropdown-menu app-table--dropdown_2" *dropdownMenu>
+    <ng-content select="[dropdownList]"></ng-content>
+  </ul>
+</div>

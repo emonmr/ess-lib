@@ -1,0 +1,18 @@
+<div class="position-relative">
+  <label class="input-label" *ngIf="label">{{ label }}*</label>
+  <input type="text" class="form-control" [formControl]="phone" appNumberOnly [allowDecimal]="false">
+  <ng-select
+    class="select-dropdown custom_select_country_code"
+    [searchable]="true"
+    [clearable]="false"
+    [formControl]="countryCode"
+  >
+    <ng-option *ngFor="let code of countryCodes" [value]="code.phoneNumberCode">
+      <div
+        class="country-logo"
+        style="background-image: url('https://www.countryflagicons.com/SHINY/24/{{ code.countryShortCode }}.png')"
+      ></div>
+      <span class="country-phone-code">{{ code.phoneNumberCode }}</span>
+    </ng-option>
+  </ng-select>
+</div>
